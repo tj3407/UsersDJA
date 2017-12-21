@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#form").submit(function(){
+                    return false;
+                })
+                $('#button').click(function(){
+                    $(".tableBody").append('<tr><td>'+$('#firstName').val()+'</td>'+'<td>'+$('#lastName').val()+'</td>'+'<td>'+$('#email').val()+'</td>'+'<td>'+$('#phone').val()+'</td></tr>');
+                    $('#form').children('input').val('');
+                })
+            }) 
+        </script>
+    </head>
+    <body>
+        <table id="names">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email Address</th>
+                    <th>Contact #</th>
+                </tr>
+            </thead>
+            <tbody class="tableBody">
+                
+
+            </tbody>
+        </table>
+        <h1>Add User</h1>
+        <hr>
+        <div>
+            <form id="form" action="process.php" method="post">
+                First Name:<input type="text" id="firstName" name="firstName" placeholder="First Name"><p></p>
+                Last Name:<input type="text" id="lastName" name="lastName" placeholder="Last Name"><p></p>
+                Email Address:<input type="email" id="email" name="email" placeholder="Email Address"><p></p>
+                Contact No.:<input type="text" id="phone" name="phone" placeholder="Phone #"><p></p>
+            </form>
+            <input type="submit" value="Add User" id="button">
+        </div>
+    </body>
+</html>
